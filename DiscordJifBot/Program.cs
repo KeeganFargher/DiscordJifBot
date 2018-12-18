@@ -59,7 +59,7 @@ namespace DiscordJifBot
 
         private async Task HandleCommandAsync (SocketMessage arg)
         {
-            if (!(arg is SocketUserMessage message) || message.Author.IsBot) return;
+            if (!(arg is SocketUserMessage message)) return;
 
             int argPos = 0;
 
