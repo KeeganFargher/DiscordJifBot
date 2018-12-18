@@ -73,7 +73,9 @@ namespace DiscordJifBot
                 var msg = context.Message.Content.Split ('>') [1].Trim ();
                 var rootObject = await SearchProcessor.LoadSearch (msg);
 
-                await message.Channel.SendMessageAsync (rootObject.Data[0].Images.Original.Url);
+                Random r = new Random();
+                var randomSearchElement = r.Next(0, rootObject.Data.Count - 1);
+                await message.Channel.SendMessageAsync (rootObject.Data[randomSearchElement].Images.Original.Url);
 
             }
         }

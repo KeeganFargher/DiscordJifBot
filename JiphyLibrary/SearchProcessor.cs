@@ -12,7 +12,7 @@ namespace JiphyLibrary
     {
         public static async Task<RootObject> LoadSearch(string search)
         {
-            int limit = 1;
+            int limit = 30;
             int offset = 0;
             string rating = "y";
             string language = "en";
