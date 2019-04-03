@@ -4,6 +4,7 @@ A discord bot that responds to people's messages with an appropriate JIF.
 
 ## I want to use this JIF bot, what must I do?
 
+* git clone etc.
 * Navigate to Common -> Keys.cs
 * Replace BotToken with your own Discord token
 * Replace GiphyApi with your own Giphy API token
