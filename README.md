@@ -9,6 +9,7 @@ A discord bot that responds to people's messages with an appropriate JIF.
 * Navigate to Common -> Keys.cs
 * Replace BotToken with your own Discord token
 * Replace GiphyApi with your own Giphy API token
+* Call the bot in Discord using `@JIF`
 
 ### What did you use to make this amazing JIF bot?
 
