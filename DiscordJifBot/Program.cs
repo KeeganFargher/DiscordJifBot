@@ -12,7 +12,15 @@ namespace DiscordJifBot
 {
     class Program
     {
-        static void Main (string[] args) => new Program ().RunBotAsync ().GetAwaiter ().GetResult ();
+        static void Main(string[] args)
+        {
+            if (args == null)
+            {
+                throw new ArgumentNullException(nameof(args));
+            }
+
+            new Program().RunBotAsync().GetAwaiter().GetResult();
+        }
 
         private DiscordSocketClient _client;
 
@@ -40,6 +48,7 @@ namespace DiscordJifBot
             await _client.LoginAsync (TokenType.Bot, Keys.BotToken);
             await _client.StartAsync ();
 
+            //  Prevent the application from closing
             await Task.Delay (-1);
         }
 
@@ -68,7 +77,7 @@ namespace DiscordJifBot
             if (clientMentionsBot)
             {
                 var context = new SocketCommandContext (_client, message);
-                var result = await _commands.ExecuteAsync (context, argPos, _services);
+                _ = await _commands.ExecuteAsync(context, argPos, _services);
 
                 var msg = context.Message.Content.Split ('>') [1].Trim ();
                 var rootObject = await SearchProcessor.LoadSearch (msg);
