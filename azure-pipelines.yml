@@ -22,7 +22,7 @@ steps:
   inputs:
     command: test
     projects: '**/*Tests/*.csproj'
-    arguments: '--configuration $(buildConfiguration)'
+    arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
 - task: PublishBuildArtifacts@1
   inputs:
     ArtifactName: 'artifacts'
