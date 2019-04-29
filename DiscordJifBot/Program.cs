@@ -79,13 +79,30 @@ namespace DiscordJifBot
                 var context = new SocketCommandContext (_client, message);
                 _ = await _commands.ExecuteAsync(context, argPos, _services);
 
-                var msg = context.Message.Content.Split ('>') [1].Trim ();
-                var rootObject = await SearchProcessor.LoadSearch (msg);
+                //  Remove the mention from the message
+                var username = _client.CurrentUser.Mention;
+                var msg = context.Message.Content.Replace(username, "");
+
+                //  Call giphy API
+                var giphy = new Giphy(Keys.GiphyApi);
+                var rootObject = await giphy.Search(msg);
 
                 Random r = new Random();
-                var randomSearchElement = r.Next(0, rootObject.Data.Count - 1);
-                await message.Channel.SendMessageAsync (rootObject.Data[randomSearchElement].Images.Original.Url);
+                var randomIndex = r.Next(0, rootObject.Data.Count - 1);
+                var item = rootObject.Data[randomIndex];
+                var imgUrl = item.Images.Original.Url.OriginalString;
 
+                var embed = new EmbedBuilder()
+                {
+                    Title = item.Title,
+                    Description = imgUrl,
+                    Color = Color.DarkBlue,
+                    ImageUrl = imgUrl
+                };
+
+                await message.Channel.SendMessageAsync ("", false, embed);
+
+                Console.WriteLine($"Replying to user {context.User.Username} with: { imgUrl }");
             }
         }
     }
