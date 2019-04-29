@@ -8,7 +8,7 @@ using JiphyLibrary.Models;
 
 namespace JiphyLibrary
 {
-    public class SearchProcessor
+    public class Giphy
     {
         public static async Task<RootObject> LoadSearch(string search)
         {

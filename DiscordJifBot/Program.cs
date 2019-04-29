@@ -84,17 +84,19 @@ namespace DiscordJifBot
                 var msg = context.Message.Content.Replace(username, "");
 
                 //  Call giphy API
-                var giphy = new Giphy(Keys.GiphyApi);
-                var rootObject = await giphy.Search(msg);
+                //var giphy = new Giphy(Keys.GiphyApi);
+                var rootObject = await Giphy.LoadSearch(msg);
 
                 Random r = new Random();
                 var randomIndex = r.Next(0, rootObject.Data.Count - 1);
                 var item = rootObject.Data[randomIndex];
-                var imgUrl = item.Images.Original.Url.OriginalString;
+                var imgUrl = item.Images.Original.Url;
+
+                //var imgUrl = item.Images.Original.Url.OriginalString;
 
                 var embed = new EmbedBuilder()
                 {
-                    Title = item.Title,
+                    //Title = item.Title,
                     Description = imgUrl,
                     Color = Color.DarkBlue,
                     ImageUrl = imgUrl
