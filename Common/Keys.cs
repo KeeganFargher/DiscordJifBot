@@ -4,7 +4,7 @@ namespace Common
 {
     public static class Keys
     {
-        public static string BotToken = "";
-        public static string GiphyApi = "";
+        public static string BotToken = "#{discordtoken}#";
+        public static string GiphyApi = "#{giphytoken}#";
     }
 }
