@@ -28,8 +28,12 @@ namespace DiscordJifBot
 
         private IServiceProvider _services;
 
+        private Keys _keys;
+
         public async Task RunBotAsync ()
         {
+            _keys = new Keys();
+            _keys.Init();
             ApiHelper.InitializeClient ();
             _client = new DiscordSocketClient ();
             _commands = new CommandService ();
@@ -45,7 +49,7 @@ namespace DiscordJifBot
 
             await RegisterCommandsAsync ();
 
-            await _client.LoginAsync (TokenType.Bot, Keys.BotToken);
+            await _client.LoginAsync (TokenType.Bot, _keys.BotToken);
             await _client.StartAsync ();
 
             //  Prevent the application from closing
@@ -84,8 +88,8 @@ namespace DiscordJifBot
                 var msg = context.Message.Content.Replace(username, "");
 
                 //  Call giphy API
-                //var giphy = new Giphy(Keys.GiphyApi);
-                var rootObject = await Giphy.LoadSearch(msg);
+                var giphy = new Giphy();
+                var rootObject = await giphy.LoadSearch(msg);
 
                 Random r = new Random();
                 var randomIndex = r.Next(0, rootObject.Data.Count - 1);

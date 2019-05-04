@@ -10,7 +10,15 @@ namespace JiphyLibrary
 {
     public class Giphy
     {
-        public static async Task<RootObject> LoadSearch(string search)
+
+        private readonly Keys _keys;
+
+        public Giphy()
+        {
+            _keys = new Keys();
+        }
+
+        public async Task<RootObject> LoadSearch(string search)
         {
             int limit = 30;
             int offset = 0;
@@ -18,7 +26,7 @@ namespace JiphyLibrary
             string language = "en";
 
             string uri = $"https://api.giphy.com/v1/gifs/search?" +
-                         $"api_key={ Keys.GiphyApi }&" +
+                         $"api_key={ _keys.GiphyApi }&" +
                          $"q={ Uri.EscapeUriString(search) }&" +
                          $"limit={ limit }&" +
                          $"offset={ offset }&" +

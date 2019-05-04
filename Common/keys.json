@@ -1,0 +1,4 @@
+{
+  "BotToken": "#{discordtoken}#",
+  "GiphyApi": "#{giphytoken}#"
+}
