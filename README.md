@@ -18,4 +18,4 @@ A discord bot that responds to people's messages with an appropriate JIF.
 * The tears of GIF pronouncers
 
 ### Tests?
-You can run tests using the CLI command `dotnet tests`
+You can run tests using the CLI command `dotnet test`
