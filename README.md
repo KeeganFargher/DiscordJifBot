@@ -10,12 +10,14 @@ A discord bot that responds to people's messages with an appropriate JIF.
 * Replace BotToken with your own Discord token
 * Replace GiphyApi with your own Giphy API token
 * Deploy your Discord bot
-* Call the bot in Discord using `@JIF`
 
 ### What did you use to make this amazing JIF bot?
 
 * C#
 * The tears of GIF pronouncers
+
+### Discord Usage
+`@JIF cute puppies`
 
 ### Tests?
 You can run tests using the CLI command `dotnet test`
