@@ -6,8 +6,6 @@ namespace Common
 {
     public class Keys
     {
-        //public static string BotToken = "#{discordtoken}#";
-        //public static string GiphyApi = "#{giphytoken}#";
 
         public string BotToken { get; set; }
         public string GiphyApi { get; set; }
