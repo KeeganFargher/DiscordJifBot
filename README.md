@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/fargherkeegan/JifBot/_apis/build/status/KeeganFargher.DiscordJifBot?branchName=master)](https://dev.azure.com/fargherkeegan/JifBot/_build/latest?definitionId=5&branchName=master)  
+
 # Discord JIF Bot 🎉
 
 A discord bot that responds to people's messages with an appropriate JIF.
