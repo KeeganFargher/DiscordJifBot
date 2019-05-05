@@ -33,7 +33,6 @@ namespace DiscordJifBot
         public async Task RunBotAsync ()
         {
             _keys = new Keys();
-            _keys.Init();
             ApiHelper.InitializeClient ();
             _client = new DiscordSocketClient ();
             _commands = new CommandService ();

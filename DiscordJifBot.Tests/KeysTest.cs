@@ -6,24 +6,30 @@ namespace DiscordJifBot.Tests
 {
     public class KeysTest
     {
-        //[Fact]
-        //public void GetBotToken_WhenCalled_NotNullOrEmpty()
-        //{
-        //    var key = Keys.BotToken;
+        private Keys _keys;
 
-        //    Assert.NotNull(key);
-        //    Assert.IsType<string>(key);
-        //    Assert.NotEmpty(key);
-        //}
+        [Fact]
+        public void Keys_WhenInstantiated_BotTokenIsNotNullOrEmpty()
+        {
+            _keys = new Keys();
 
-        //[Fact]
-        //public void GetGiphyApiKey_WhenCalled_NotNullOrEmpty()
-        //{
-        //    var key = Keys.GiphyApi;
+            var actual = _keys.BotToken;
 
-        //    Assert.NotNull(key);
-        //    Assert.IsType<string>(key);
-        //    Assert.NotEmpty(key);
-        //}
+            Assert.NotNull(actual);
+            Assert.IsType<string>(actual);
+            Assert.NotEmpty(actual);
+        }
+
+        [Fact]
+        public void Keys_WhenInstantiated_GiphyTokenIsNotNullOrEmpty()
+        {
+            _keys = new Keys();
+
+            var actual = _keys.GiphyApi;
+
+            Assert.NotNull(actual);
+            Assert.IsType<string>(actual);
+            Assert.NotEmpty(actual);
+        }
     }
 }

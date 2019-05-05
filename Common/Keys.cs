@@ -4,21 +4,25 @@ using System.IO;
 
 namespace Common
 {
+
     public class Keys
     {
-
         public string BotToken { get; set; }
         public string GiphyApi { get; set; }
 
-        
-        public void Init()
+        public Keys()
+        {
+            Init();
+        }
+       
+        private void Init()
         {
             using (var streamReader = File.OpenText("keys.json"))
             {
                 string json = streamReader.ReadToEnd();
-                var item = JsonConvert.DeserializeObject<Keys>(json);
-                BotToken = item.BotToken;
-                GiphyApi = item.GiphyApi;
+                dynamic result = JsonConvert.DeserializeObject(json);
+                BotToken = result.BotToken;
+                GiphyApi = result.GiphyApi;
             }
         }
     }

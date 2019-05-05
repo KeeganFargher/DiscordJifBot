@@ -16,7 +16,6 @@ namespace JiphyLibrary
         public Giphy()
         {
             _keys = new Keys();
-            _keys.Init();
         }
 
         public async Task<RootObject> LoadSearch(string search)
