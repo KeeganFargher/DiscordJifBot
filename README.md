@@ -20,6 +20,7 @@ A discord bot that responds to people's messages with an appropriate JIF. Please
 * The tears of GIF pronouncers
 
 ### Discord Usage
+[Invite the bot](https://discordapp.com/oauth2/authorize?client_id=471027560566882305&scope=bot)  
 `@JIF cute puppies`
 
 ### Tests?
