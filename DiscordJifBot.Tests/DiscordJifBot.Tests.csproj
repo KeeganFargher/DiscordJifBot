@@ -15,7 +15,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj" />
     <ProjectReference Include="..\DiscordJifBot\DiscordJifBot.csproj" />
-    <ProjectReference Include="..\JiphyLibrary\JiphyLibrary.csproj" />
   </ItemGroup>
 
 </Project>

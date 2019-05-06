@@ -5,10 +5,10 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Discord.Net" Version="1.0.2" />
+    <PackageReference Include="GiphyApiWrapper" Version="0.1.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj" />
-    <ProjectReference Include="..\JiphyLibrary\JiphyLibrary.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Settings.job">

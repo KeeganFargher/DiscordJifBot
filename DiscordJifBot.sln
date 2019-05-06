@@ -7,9 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscordJifBot", "DiscordJif
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{ED0296DE-8ACA-48BD-BE42-8879C57A7E56}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiphyLibrary", "JiphyLibrary\JiphyLibrary.csproj", "{9A4AEDF6-C7C9-413B-87A8-3D05B90F814F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscordJifBot.Tests", "DiscordJifBot.Tests\DiscordJifBot.Tests.csproj", "{BF1410E3-E440-47B3-BC5C-F6EDB57B39FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscordJifBot.Tests", "DiscordJifBot.Tests\DiscordJifBot.Tests.csproj", "{BF1410E3-E440-47B3-BC5C-F6EDB57B39FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		{ED0296DE-8ACA-48BD-BE42-8879C57A7E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED0296DE-8ACA-48BD-BE42-8879C57A7E56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED0296DE-8ACA-48BD-BE42-8879C57A7E56}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9A4AEDF6-C7C9-413B-87A8-3D05B90F814F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A4AEDF6-C7C9-413B-87A8-3D05B90F814F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A4AEDF6-C7C9-413B-87A8-3D05B90F814F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A4AEDF6-C7C9-413B-87A8-3D05B90F814F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BF1410E3-E440-47B3-BC5C-F6EDB57B39FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BF1410E3-E440-47B3-BC5C-F6EDB57B39FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF1410E3-E440-47B3-BC5C-F6EDB57B39FE}.Release|Any CPU.ActiveCfg = Release|Any CPU

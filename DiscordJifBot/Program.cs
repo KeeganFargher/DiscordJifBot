@@ -5,7 +5,9 @@ using Common;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
-using JiphyLibrary;
+using Giphy;
+using Giphy.Models;
+using Giphy.Models.Parameters;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DiscordJifBot
@@ -30,10 +32,12 @@ namespace DiscordJifBot
 
         private Keys _keys;
 
+        private Giphy.Giphy _giphy;
+
         public async Task RunBotAsync ()
         {
             _keys = new Keys();
-            ApiHelper.InitializeClient ();
+            _giphy = new Giphy.Giphy(_keys.GiphyApi);
             _client = new DiscordSocketClient ();
             _commands = new CommandService ();
 
@@ -79,36 +83,49 @@ namespace DiscordJifBot
 
             if (clientMentionsBot)
             {
-                var context = new SocketCommandContext (_client, message);
+                var context = new SocketCommandContext(_client, message);
                 _ = await _commands.ExecuteAsync(context, argPos, _services);
 
                 //  Remove the mention from the message
-                var username = _client.CurrentUser.Mention;
-                var msg = context.Message.Content.Replace(username, "");
+                var msg = context.Message.Content;
+                msg = msg.Split(">")[1];
 
                 //  Call giphy API
-                var giphy = new Giphy();
-                var rootObject = await giphy.LoadSearch(msg);
-
-                Random r = new Random();
-                var randomIndex = r.Next(0, rootObject.Data.Count - 1);
-                var item = rootObject.Data[randomIndex];
-                var imgUrl = item.Images.Original.Url;
-
-                //var imgUrl = item.Images.Original.Url.OriginalString;
-
-                var embed = new EmbedBuilder()
+                var paramter = new SearchParameter
                 {
-                    //Title = item.Title,
-                    Description = imgUrl,
-                    Color = Color.DarkBlue,
-                    ImageUrl = imgUrl
+                    Query = msg
                 };
+                var rootObject = await _giphy.Search(paramter);
 
-                await message.Channel.SendMessageAsync ("", false, embed);
+                //  Default reply if there's no data response
+                if (rootObject.Data.Count == 0)
+                {
+                    await message.Channel.SendMessageAsync("I can't find any JIFs for that one :cold_sweat:");
+                    return;
+                }
 
-                Console.WriteLine($"Replying to user {context.User.Username} with: { imgUrl }");
+                await SendGif(message, context, rootObject);
             }
+        }
+
+        private static async Task SendGif(SocketUserMessage message, SocketCommandContext context, RootObject rootObject)
+        {
+            var r = new Random();
+            var randomIndex = r.Next(0, rootObject.Data.Count - 1);
+            var item = rootObject.Data[randomIndex];
+            var imgUrl = item.Images.Original.Url.OriginalString;
+
+            var embed = new EmbedBuilder()
+            {
+                Title = item.Title,
+                Description = imgUrl,
+                Color = Color.DarkBlue,
+                ImageUrl = imgUrl
+            };
+
+            await message.Channel.SendMessageAsync("", false, embed);
+
+            Console.WriteLine($"Replying to user {context.User.Username} with: { item.Title }");
         }
     }
 }
