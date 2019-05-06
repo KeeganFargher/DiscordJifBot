@@ -93,7 +93,9 @@ namespace DiscordJifBot
                 //  Call giphy API
                 var paramter = new SearchParameter
                 {
-                    Query = msg
+                    Query = msg,
+                    Limit = 5,
+                    Rating = Rating.R
                 };
                 var rootObject = await _giphy.Search(paramter);
 
