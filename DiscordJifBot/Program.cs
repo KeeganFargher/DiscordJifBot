@@ -5,9 +5,9 @@ using Common;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
-using Giphy;
-using Giphy.Models;
-using Giphy.Models.Parameters;
+using GiphyApiWrapper;
+using GiphyApiWrapper.Models;
+using GiphyApiWrapper.Models.Parameters;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DiscordJifBot
@@ -32,12 +32,12 @@ namespace DiscordJifBot
 
         private Keys _keys;
 
-        private Giphy.Giphy _giphy;
+        private Giphy _giphy;
 
         public async Task RunBotAsync ()
         {
             _keys = new Keys();
-            _giphy = new Giphy.Giphy(_keys.GiphyApi);
+            _giphy = new Giphy(_keys.GiphyApi);
             _client = new DiscordSocketClient ();
             _commands = new CommandService ();
 
