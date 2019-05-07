@@ -1,5 +1,6 @@
 # Discord JIF Bot 🎉
 
+[Invite the bot](https://discordapp.com/oauth2/authorize?client_id=471027560566882305&scope=bot)    
 A discord bot that responds to people's messages with an appropriate JIF. Please see [GiphyApiWrapper](https://github.com/KeeganFargher/GiphyApiWrapper) for the Giphy Api Wrapper library used in this project, created by me.
 
 ### Build Status
@@ -20,7 +21,6 @@ A discord bot that responds to people's messages with an appropriate JIF. Please
 * The tears of GIF pronouncers
 
 ### Discord Usage
-[Invite the bot](https://discordapp.com/oauth2/authorize?client_id=471027560566882305&scope=bot)  
 `@JIF cute puppies`
 
 ### Tests?
