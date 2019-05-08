@@ -5,6 +5,7 @@ A discord bot that responds to people's messages with an appropriate JIF. Please
 
 ### Build Status
 [![Build Status](https://dev.azure.com/fargherkeegan/JifBot/_apis/build/status/KeeganFargher.DiscordJifBot?branchName=master)](https://dev.azure.com/fargherkeegan/JifBot/_build/latest?definitionId=5&branchName=master) 
+[![CodeFactor](https://www.codefactor.io/repository/github/keeganfargher/discordjifbot/badge)](https://www.codefactor.io/repository/github/keeganfargher/discordjifbot)
 
 ### I want to use this JIF bot, what must I do?
 
